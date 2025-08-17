@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Applications Hub - Your Guide to College Success</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Homepage Content -->
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">University Applications Hub</h1>
+                <p class="hero-subtitle">Your one-stop guide for high school students applying to universities</p>
+                <p class="hero-description">Navigate the complex world of university applications with confidence. From academic requirements to financial aid, we've got everything you need to succeed.</p>
+                <a href="academics.html" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Explore Categories</h2>
+                <div class="category-grid">
+                    <a href="academics.html" class="category-card">
+                        <h3>Academics</h3>
+                        <p>Course selection, GPA requirements, standardized tests, and academic planning for university admissions.</p>
+                    </a>
+                    
+                    <a href="extracurriculars.html" class="category-card">
+                        <h3>Extracurriculars</h3>
+                        <p>Leadership roles, volunteer work, clubs, sports, and other activities that strengthen your application.</p>
+                    </a>
+                    
+                    <a href="essays.html" class="category-card">
+                        <h3>Essays</h3>
+                        <p>Personal statements, supplemental essays, and tips for crafting compelling application essays.</p>
+                    </a>
+                    
+                    <a href="awards.html" class="category-card">
+                        <h3>Awards</h3>
+                        <p>Academic honors, competitions, scholarships, and recognition opportunities to enhance your profile.</p>
+                    </a>
+                    
+                    <a href="financial-aid.html" class="category-card">
+                        <h3>Financial Aid</h3>
+                        <p>FAFSA, scholarships, grants, student loans, and strategies for funding your education.</p>
+                    </a>
+                    
+                    <a href="timeline.html" class="category-card">
+                        <h3>Timeline</h3>
+                        <p>Application deadlines, testing dates, and a comprehensive timeline for your university application journey.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Reinitialize search after header is loaded
+                initializeSearch();
+            });
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
