@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - University Applications Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">Academics</h1>
+                <p class="page-intro">Build a strong academic foundation for your university applications with strategic course selection and academic planning.</p>
+            </div>
+        </div>
+        
+        <!-- Page Content -->
+        <div class="container">
+            <!-- Main Content Section -->
+            <section class="content-section">
+                <h2>Course Selection Strategy</h2>
+                <p>Your course selection plays a crucial role in university admissions. Admissions officers look for students who challenge themselves academically while maintaining strong performance.</p>
+                
+                <h3>Key Steps for Academic Success</h3>
+                <ol class="step-list">
+                    <li><strong>Choose Rigorous Courses:</strong> Take AP, IB, or honors classes in core subjects like English, Math, Science, and Social Studies.</li>
+                    <li><strong>Maintain Balance:</strong> Don't overload yourself. It's better to excel in fewer challenging courses than to struggle in too many.</li>
+                    <li><strong>Show Progression:</strong> Demonstrate growth by taking increasingly challenging courses each year.</li>
+                    <li><strong>Focus on Your Interests:</strong> Take advanced courses in subjects related to your intended major or career interests.</li>
+                    <li><strong>Meet Requirements:</strong> Ensure you fulfill all graduation requirements and university prerequisites.</li>
+                </ol>
+                
+                <h3>Standardized Testing</h3>
+                <p>Most universities require standardized test scores. Plan your testing schedule early and consider taking tests multiple times to improve your scores. Check with your target universities to see if they require the <a href="#" style="color: #A8C686;">SAT</a> or <a href="#" style="color: #A8C686;">ACT</a>, and whether subject tests are needed.</p>
+                
+                <div class="resource-links">
+                    <h3>Academic Resources</h3>
+                    <ul>
+                        <li><a href="#">College Board - AP Course Information</a></li>
+                        <li><a href="#">Khan Academy - Free SAT Prep</a></li>
+                        <li><a href="#">IB Programme Guide</a></li>
+                        <li><a href="#">University Course Requirements Database</a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Additional Section -->
+            <section class="content-section">
+                <h2>GPA and Class Rank</h2>
+                <p>Your Grade Point Average (GPA) and class rank are important factors in university admissions. Here's what you need to know:</p>
+                
+                <h3>Understanding GPA Systems</h3>
+                <ul>
+                    <li><strong>Unweighted GPA:</strong> Calculated on a 4.0 scale without considering course difficulty</li>
+                    <li><strong>Weighted GPA:</strong> Gives extra points for honors, AP, and IB courses</li>
+                    <li><strong>College GPA:</strong> Some universities recalculate your GPA using their own system</li>
+                </ul>
+                
+                <p>Focus on taking challenging courses and maintaining strong grades. Universities prefer to see a strong performance in rigorous courses rather than perfect grades in easy classes.</p>
+            </section>
+            
+            <!-- Back to Home Link -->
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Reinitialize search and highlight current page
+                initializeSearch();
+                highlightCurrentPage();
+            });
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
