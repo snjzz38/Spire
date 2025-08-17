@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PAGE TITLE] - University Applications Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">[PAGE TITLE]</h1>
+                <p class="page-intro">[PAGE INTRODUCTION - Brief description of what this page covers]</p>
+            </div>
+        </div>
+        
+        <!-- Page Content -->
+        <div class="container">
+            <!-- Main Content Section -->
+            <section class="content-section">
+                <h2>[SECTION TITLE]</h2>
+                <p>[INTRODUCTORY PARAGRAPH - Explain the main topic and its importance]</p>
+                
+                <!-- Subsection with Steps/List -->
+                <h3>[SUBSECTION TITLE]</h3>
+                <ol class="step-list">
+                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
+                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
+                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
+                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
+                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
+                </ol>
+                
+                <!-- Additional Subsection -->
+                <h3>[ANOTHER SUBSECTION]</h3>
+                <p>[Additional content, explanations, or tips]</p>
+                
+                <!-- You can also add plain text links like this: -->
+                <p>For more information, check out <a href="#" style="color: #A8C686;">this helpful resource</a> or visit the <a href="#" style="color: #A8C686;">official website</a>.</p>
+                
+                <!-- Resource Links Box -->
+                <div class="resource-links">
+                    <h3>[RESOURCE SECTION TITLE]</h3>
+                    <ul>
+                        <li><a href="#">[Resource Link 1]</a></li>
+                        <li><a href="#">[Resource Link 2]</a></li>
+                        <li><a href="#">[Resource Link 3]</a></li>
+                        <li><a href="#">[Resource Link 4]</a></li>
+                    </ul>
+                </div>
+                
+                <!-- You can add images like this: -->
+                <!-- <img src="images/[image-name].jpg" alt="[Image description]" style="max-width: 100%; height: auto; margin: 2rem 0; border-radius: 8px;"> -->
+                
+                <!-- For different content types, you can use: -->
+                <!--
+                Regular paragraphs:
+                <p>[Your content here]</p>
+                
+                Bold text:
+                <strong>[Important text]</strong>
+                
+                Italic text:
+                <em>[Emphasized text]</em>
+                
+                Bullet lists (instead of numbered):
+                <ul>
+                    <li>[List item]</li>
+                    <li>[List item]</li>
+                </ul>
+                
+                Inline links:
+                <a href="[URL]" style="color: #A8C686;">[Link text]</a>
+                
+                Block quotes:
+                <blockquote style="border-left: 4px solid #A8C686; padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                    "[Quote text here]"
+                </blockquote>
+                -->
+            </section>
+            
+            <!-- Additional Section (optional) -->
+            <section class="content-section">
+                <h2>[ANOTHER MAIN SECTION]</h2>
+                <p>[Content for second main section]</p>
+                
+                <!-- You can repeat the patterns above -->
+            </section>
+            
+            <!-- Back to Home Link -->
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Reinitialize search and highlight current page
+                initializeSearch();
+                highlightCurrentPage();
+            });
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
