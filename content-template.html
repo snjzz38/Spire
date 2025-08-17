@@ -3,122 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[PAGE TITLE] - University Applications Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>[Page Title] - University Applications Hub</title>
+    <link rel="stylesheet" href="global/styles.css">
 </head>
 <body>
-    <!-- Include Header -->
     <div id="header-placeholder"></div>
-
-    <!-- Main Content -->
+    
     <main class="main-content">
-        <!-- Page Header -->
-        <div class="page-header">
+        <section class="page-header">
             <div class="container">
-                <h1 class="page-title">[PAGE TITLE]</h1>
-                <p class="page-intro">[PAGE INTRODUCTION - Brief description of what this page covers]</p>
+                <h1>[Page Title]</h1>
+                <p>[Brief introduction paragraph about this topic]</p>
             </div>
-        </div>
+        </section>
         
-        <!-- Page Content -->
         <div class="container">
-            <!-- Main Content Section -->
             <section class="content-section">
-                <h2>[SECTION TITLE]</h2>
-                <p>[INTRODUCTORY PARAGRAPH - Explain the main topic and its importance]</p>
+                <h2>[Main Section Title]</h2>
+                <p>[Introduction paragraph for this section]</p>
                 
-                <!-- Subsection with Steps/List -->
-                <h3>[SUBSECTION TITLE]</h3>
-                <ol class="step-list">
-                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
-                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
-                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
-                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
-                    <li><strong>[STEP TITLE]:</strong> [Step description and details]</li>
-                </ol>
+                <h3>[Subsection Title]</h3>
+                <p>[Content paragraph with information, tips, or guidance]</p>
                 
-                <!-- Additional Subsection -->
-                <h3>[ANOTHER SUBSECTION]</h3>
-                <p>[Additional content, explanations, or tips]</p>
-                
-                <!-- You can also add plain text links like this: -->
-                <p>For more information, check out <a href="#" style="color: #A8C686;">this helpful resource</a> or visit the <a href="#" style="color: #A8C686;">official website</a>.</p>
-                
-                <!-- Resource Links Box -->
-                <div class="resource-links">
-                    <h3>[RESOURCE SECTION TITLE]</h3>
-                    <ul>
-                        <li><a href="#">[Resource Link 1]</a></li>
-                        <li><a href="#">[Resource Link 2]</a></li>
-                        <li><a href="#">[Resource Link 3]</a></li>
-                        <li><a href="#">[Resource Link 4]</a></li>
-                    </ul>
-                </div>
-                
-                <!-- You can add images like this: -->
-                <!-- <img src="images/[image-name].jpg" alt="[Image description]" style="max-width: 100%; height: auto; margin: 2rem 0; border-radius: 8px;"> -->
-                
-                <!-- For different content types, you can use: -->
-                <!--
-                Regular paragraphs:
-                <p>[Your content here]</p>
-                
-                Bold text:
-                <strong>[Important text]</strong>
-                
-                Italic text:
-                <em>[Emphasized text]</em>
-                
-                Bullet lists (instead of numbered):
                 <ul>
-                    <li>[List item]</li>
-                    <li>[List item]</li>
+                    <li>[List item with actionable advice]</li>
+                    <li>[Another helpful tip or resource]</li>
+                    <li>[Additional guidance point]</li>
                 </ul>
                 
-                Inline links:
-                <a href="[URL]" style="color: #A8C686;">[Link text]</a>
+                <h3>[Another Subsection]</h3>
+                <p>[More detailed content with <a href="#">inline links</a> to resources]</p>
                 
-                Block quotes:
-                <blockquote style="border-left: 4px solid #A8C686; padding-left: 1rem; margin: 1rem 0; font-style: italic;">
-                    "[Quote text here]"
-                </blockquote>
-                -->
+                <ol>
+                    <li>[Step-by-step instruction]</li>
+                    <li>[Next step in the process]</li>
+                    <li>[Final step or outcome]</li>
+                </ol>
             </section>
             
-            <!-- Additional Section (optional) -->
             <section class="content-section">
-                <h2>[ANOTHER MAIN SECTION]</h2>
-                <p>[Content for second main section]</p>
+                <h2>[Second Main Section]</h2>
+                <p>[Content for second major topic area]</p>
                 
-                <!-- You can repeat the patterns above -->
+                <!-- You can easily add images like this: -->
+                <!-- <img src="images/example.jpg" alt="Description" style="max-width: 100%; height: auto; margin: 1rem 0;"> -->
+                
+                <h3>[Subsection with Mixed Content]</h3>
+                <p>This section shows how you can mix different types of content:</p>
+                <ul>
+                    <li><strong>Bold text</strong> for emphasis</li>
+                    <li><em>Italic text</em> for subtle emphasis</li>
+                    <li><a href="https://example.com">External links</a> to helpful resources</li>
+                    <li>Plain text for regular information</li>
+                </ul>
             </section>
             
-            <!-- Back to Home Link -->
-            <a href="index.html" class="back-link">&larr; Back to Home</a>
+            <div class="resource-links">
+                <h3>Helpful Resources</h3>
+                <ul>
+                    <li><a href="https://example.com/resource1">[Resource Title 1] - Brief description</a></li>
+                    <li><a href="https://example.com/resource2">[Resource Title 2] - What this resource offers</a></li>
+                    <li><a href="https://example.com/resource3">[Resource Title 3] - Why it's useful</a></li>
+                    <li><a href="https://example.com/resource4">[Resource Title 4] - Additional context</a></li>
+                </ul>
+            </div>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
         </div>
     </main>
-
-    <!-- Include Footer -->
+    
     <div id="footer-placeholder"></div>
-
-    <!-- Include Scripts -->
-    <script src="script.js"></script>
-    <script>
-        // Load header and footer
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-                // Reinitialize search and highlight current page
-                initializeSearch();
-                highlightCurrentPage();
-            });
-        
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    </script>
+    
+    <script src="global/script.js"></script>
 </body>
 </html>
