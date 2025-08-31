@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT & ACT Guide - University Applications Hub</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          color: #2c2c2c;
+          background-color: #fafafa;
+        }
+
+        /* Header Styles */
+        .header {
+          background-color: #8b7355;
+          color: white;
+          padding: 1rem 0;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-decoration: none;
+          color: white;
+        }
+
+        .nav-links {
+          display: flex;
+          list-style: none;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        .nav-links a {
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+          color: #f0f0f0;
+        }
+
+        .search-container {
+          display: flex;
+          align-items: center;
+        }
+
+        .search-box {
+          padding: 0.5rem;
+          border: none;
+          border-radius: 4px;
+          margin-right: 0.5rem;
+        }
+
+        .search-btn {
+          background-color: #7a9b76;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+          background-color: #6a8a66;
+        }
+
+        /* Main Content Styles */
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 2rem;
+        }
+
+        .main-content {
+          min-height: calc(100vh - 200px);
+        }
+
+        .page-header {
+          background: linear-gradient(135deg, #7a9b76 0%, #6a8a66 100%);
+          color: white;
+          padding: 3rem 0;
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .page-header p {
+          font-size: 1.2rem;
+          opacity: 0.9;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .content-section {
+          margin-bottom: 3rem;
+          background: white;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+          color: #8b7355;
+          margin-bottom: 1.5rem;
+          font-size: 1.8rem;
+          border-bottom: 2px solid #7a9b76;
+          padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+          color: #7a9b76;
+          margin: 1.5rem 0 1rem 0;
+          font-size: 1.3rem;
+        }
+
+        .content-section p {
+          margin-bottom: 1rem;
+          line-height: 1.7;
+        }
+
+        .content-section ul,
+        .content-section ol {
+          margin-bottom: 1.5rem;
+          padding-left: 2rem;
+        }
+
+        .content-section li {
+          margin-bottom: 0.8rem;
+          line-height: 1.6;
+        }
+
+        .content-section a {
+          color: #7a9b76;
+          text-decoration: none;
+          font-weight: 500;
+        }
+
+        .content-section a:hover {
+          color: #6a8a66;
+          text-decoration: underline;
+        }
+
+        .highlight-box {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          border-left: 4px solid #7a9b76;
+          padding: 1.5rem;
+          margin: 1.5rem 0;
+          border-radius: 0 8px 8px 0;
+        }
+
+        .comparison-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin: 2rem 0;
+        }
+
+        .comparison-card {
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          padding: 1.5rem;
+          border-radius: 8px;
+          border-left: 4px solid #8b7355;
+        }
+
+        .comparison-card h4 {
+          color: #8b7355;
+          margin-bottom: 1rem;
+          font-size: 1.2rem;
+        }
+
+        .info-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
+          margin: 2rem 0;
+        }
+
+        .info-card {
+          background: white;
+          border: 1px solid #e0e0e0;
+          padding: 1.5rem;
+          border-radius: 8px;
+          transition: box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h4 {
+          color: #7a9b76;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+        }
+
+        .resource-links {
+          background: linear-gradient(135deg, #8b7355 0%, #7a9b76 100%);
+          color: white;
+          padding: 2rem;
+          border-radius: 8px;
+          margin: 2rem 0;
+        }
+
+        .resource-links h3 {
+          color: white;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        .resource-links ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        .resource-links li {
+          margin-bottom: 1rem;
+        }
+
+        .resource-links a {
+          color: #f0f0f0;
+          text-decoration: none;
+          padding: 0.5rem;
+          display: block;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+        }
+
+        .resource-links a:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          color: white;
+        }
+
+        .back-link {
+          display: inline-block;
+          background-color: #7a9b76;
+          color: white;
+          padding: 0.8rem 1.5rem;
+          text-decoration: none;
+          border-radius: 4px;
+          margin-top: 2rem;
+          transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+          background-color: #6a8a66;
+        }
+
+        .timeline-box {
+          background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+          border-left: 4px solid #f39c12;
+          padding: 1.5rem;
+          margin: 1.5rem 0;
+          border-radius: 0 8px 8px 0;
+        }
+
+        .score-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 1.5rem 0;
+          background: white;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .score-table th,
+        .score-table td {
+          padding: 1rem;
+          text-align: left;
+          border-bottom: 1px solid #e0e0e0;
+        }
+
+        .score-table th {
+          background-color: #8b7355;
+          color: white;
+          font-weight: 600;
+        }
+
+        .score-table tr:hover {
+          background-color: #f8f9fa;
+        }
+
+        /* Footer Styles */
+        .footer {
+          background-color: #2c2c2c;
+          color: white;
+          padding: 3rem 0 1rem;
+          margin-top: 4rem;
+        }
+
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .footer-section h3 {
+          margin-bottom: 1rem;
+          color: #8b7355;
+        }
+
+        .footer-section ul {
+          list-style: none;
+        }
+
+        .footer-section ul li {
+          margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+          color: #ccc;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+          color: white;
+        }
+
+        .social-links {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        .social-links a {
+          color: #ccc;
+          text-decoration: none;
+          padding: 0.5rem;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+          background-color: #444;
+          color: white;
+        }
+
+        .footer-bottom {
+          text-align: center;
+          padding-top: 2rem;
+          margin-top: 2rem;
+          border-top: 1px solid #444;
+          color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+          }
+
+          .nav-links {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+
+          .page-header h1 {
+            font-size: 2rem;
+          }
+
+          .comparison-grid,
+          .info-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .container {
+            padding: 1rem;
+          }
+
+          .content-section {
+            padding: 1.5rem;
+          }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">University Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#scholarships">Scholarships</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search...">
+                <button class="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>SAT & ACT: Your Guide to U.S. College Entrance Exams</h1>
+                <p>Everything Canadian students need to know about standardized testing for U.S. university admissions</p>
+            </div>
+        </section>
+        
+        <div class="container">
+            <section class="content-section">
+                <h2>What Are the SAT and ACT?</h2>
+                <p>The SAT and ACT are standardized tests required by most U.S. universities for admission. Think of them as the American equivalent to final exams, but designed to measure college readiness rather than specific course content.</p>
+                
+                <div class="highlight-box">
+                    <h3>Key Differences at a Glance:</h3>
+                    <ul>
+                        <li><strong>SAT:</strong> 3 hours, focuses on Evidence-Based Reading, Writing, and Math</li>
+                        <li><strong>ACT:</strong> 2 hours 55 minutes, includes English, Math, Reading, Science, plus optional Writing</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Do I Need to Take These as a Canadian Student?</h2>
+                <p><strong>Short answer: Yes, if you're applying to U.S. colleges.</strong></p>
+                <p>Most U.S. universities require either the SAT or ACT from international students, including Canadians. However, some schools have become test-optional, especially post-COVID.</p>
+                <div class="highlight-box">
+                    <p><strong>Quick tip:</strong> Check each university's specific requirements on their admissions page, as policies vary widely.</p>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Which Test Should I Choose?</h2>
+                <p>Take a practice test for both to see which suits your strengths better. Here's a quick comparison:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Choose the SAT if you:</h4>
+                        <ul>
+                            <li>Prefer longer time per question</li>
+                            <li>Excel at reading comprehension and vocabulary</li>
+                            <li>Like math problems that focus on algebra and data analysis</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>Choose the ACT if you:</h4>
+                        <ul>
+                            <li>Work well under time pressure</li>
+                            <li>Are strong in science reasoning</li>
+                            <li>Prefer more straightforward, fact-based questions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Free Practice Tests:</h3>
+                <ul>
+                    <li><a href="https://www.khanacademy.org/sat" target="_blank">Official SAT Practice (Khan Academy)</a></li>
+                    <li><a href="https://www.act.org/content/act/en/products-and-services/the-act/test-preparation/free-act-test-prep.html" target="_blank">Official ACT Practice Tests</a></li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <h2>Test Dates and Registration</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>SAT</h4>
+                        <ul>
+                            <li><strong>Offered:</strong> 7 times per year (March, May, June, August, October, November, December)</li>
+                            <li><strong>Registration:</strong> <a href="https://collegereadiness.collegeboard.org/" target="_blank">College Board website</a></li>
+                            <li><strong>Cost:</strong> $60 USD (plus international fee for Canadian students)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>ACT</h4>
+                        <ul>
+                            <li><strong>Offered:</strong> 6 times per year (February, April, June, July, September, December)</li>
+                            <li><strong>Registration:</strong> <a href="https://www.act.org/" target="_blank">ACT website</a></li>
+                            <li><strong>Cost:</strong> $63 USD (plus international fee)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> Canadian test centers are available in major cities. Register 6-8 weeks early as spots fill quickly.</p>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>When Should I Take These Tests?</h2>
+                
+                <div class="timeline-box">
+                    <h3>Recommended Timeline:</h3>
+                    <ul>
+                        <li><strong>Grade 11 (Junior Year):</strong> Take your first attempt in spring (March/April), but the earlier, the better; just keep watch of costs</li>
+                        <li><strong>Grade 12 (Senior Year):</strong> Retake in fall if needed (August/September/October)</li>
+                    </ul>
+                </div>
+                
+                <h3>Why this timing works:</h3>
+                <ul>
+                    <li>You'll have covered most necessary math concepts by Grade 11</li>
+                    <li>Gives you time to retake if your first score isn't where you want it</li>
+                    <li>Meets early application deadlines (November 1st for many schools)</li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <h2>Test Preparation</h2>
+                
+                <h3>Free Resources</h3>
+                <ul>
+                    <li><a href="https://www.khanacademy.org/sat" target="_blank">Khan Academy SAT Prep</a> - Personalized practice based on PSAT scores</li>
+                    <li><a href="https://www.act.org/content/act/en/products-and-services/the-act/test-preparation/free-act-test-prep.html" target="_blank">Official ACT Prep</a> - Free practice tests and questions</li>
+                    <li><a href="https://www.uworld.com/" target="_blank">UWorld SAT/ACT</a> - Limited free questions (paid plans available)</li>
+                </ul>
+                
+                <div class="resource-links">
+                    <h3>Additional SAT Resources</h3>
+                    <ul>
+                        <li><a href="https://docs.google.com/document/d/1F3YucxFsOUs9bDsdeOZcogR6siMa8jPMS57v-VT2m0M/edit?tab=t.0#heading=h.culbzok5vpjy" target="_blank">SAT Overview Resource - Comprehensive guide to understanding the SAT format and content</a></li>
+                        <li><a href="https://docs.google.com/document/d/1y-kTR1fFj3ZFBpNtteeanf1fSrHaFJT25y5Gc7rueLE/edit?usp=sharing" target="_blank">SAT Tips & Resources - Links to practice questions, studying concepts, and specific section guidance</a></li>
+                    </ul>
+                    <p><em>The second document provides links to other resources on specific sections of the SAT, so it's highly recommended!</em></p>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>In-Person vs. Digital Testing</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Digital SAT (launched 2024)</h4>
+                        <ul>
+                            <li>Shorter test time (2 hours 14 minutes vs. 3 hours)</li>
+                            <li>Adaptive testing (questions adjust based on your performance)</li>
+                            <li>Available on weekends at test centers</li>
+                            <li>Calculator allowed for entire math section</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>Paper ACT (still available)</h4>
+                        <ul>
+                            <li>Traditional format most students are familiar with</li>
+                            <li>No adaptive elements</li>
+                            <li>Consistent timing throughout</li>
+                            <li>Standard pencil-and-paper format</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Score Ranges and What's Considered Good</h2>
+                
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Score Range</th>
+                            <th>Breakdown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SAT</strong></td>
+                            <td>400-1600 total</td>
+                            <td>
+                                • 200-800 Evidence-Based Reading and Writing<br>
+                                • 200-800 Math
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACT</strong></td>
+                            <td>1-36 composite score</td>
+                            <td>Average of four subject scores (English, Math, Reading, Science)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Target Scores for Canadian Students:</h3>
+                <ul>
+                    <li><strong>Competitive schools:</strong> SAT 1400+ / ACT 30+</li>
+                    <li><strong>Top-tier schools:</strong> SAT 1500+ / ACT 33+</li>
+                    <li><strong>Ivy League/Elite:</strong> SAT 1550+ / ACT 35+</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Tip:</strong> Check average scores for your target schools to set realistic goals.</p>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Test Day Essentials</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>What to Bring:</h4>
+                        <ul>
+                            <li>Valid photo ID (passport recommended for international students)</li>
+                            <li>Admission ticket</li>
+                            <li>No. 2 pencils (for paper tests) or ensure your device is charged (for digital)</li>
+                            <li>Approved calculator for math sections</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>What NOT to bring:</h4>
+                        <ul>
+                            <li>Phone (must be turned off and stored)</li>
+                            <li>Smart watches</li>
+                            <li>Food or drinks (provided break snacks only)</li>
+                            <li>Unauthorized electronic devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>After You Get Your Scores</h2>
+                
+                <h3>Score Reporting:</h3>
+                <ul>
+                    <li>SAT scores available in 2-3 weeks</li>
+                    <li>ACT scores available in 3-8 weeks</li>
+                    <li>Free score reports to 4 colleges included in registration fee</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Superscoring:</strong> Many schools accept "superscores" - your highest section scores across multiple test dates. This means retaking can only help, not hurt.</p>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Next Steps</h2>
+                <ol>
+                    <li>Take a practice test to determine which exam suits you better</li>
+                    <li>Register early for your preferred test date</li>
+                    <li>Create a prep timeline using the free resources above</li>
+                    <li>Research your target schools' average scores and requirements</li>
+                    <li>Consider retaking if your first score doesn't meet your goals</li>
+                </ol>
+                
+                <div class="highlight-box">
+                    <h3>Need more specific guidance? Check out our other guides:</h3>
+                    <ul>
+                        <li>University Application Timeline</li>
+                        <li>Grades & GPA: What Universities Really Look For</li>
+                        <li>International Student Application Requirements</li>
+                    </ul>
+                </div>
+                
+                <p><em>This guide covers the basics, but every student's situation is unique. Use these resources as starting points and always verify current requirements with your target universities.</em></p>
+            </section>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="academics.html">Academic Preparation</a></li>
+                    <li><a href="#applications">Application Process</a></li>
+                    <li><a href="#scholarships">Scholarships</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#study-guides">Study Guides</a></li>
+                    <li><a href="#practice-tests">Practice Tests</a></li>
+                    <li><a href="#essay-help">Essay Writing</a></li>
+                    <li><a href="#career-guidance">Career Guidance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#facebook">Facebook</a>
+                    <a href="#twitter">Twitter</a>
+                    <a href="#instagram">Instagram</a>
+                    <a href="#youtube">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 University Hub. All rights reserved. | <a href="#privacy" style="color: #8B7355;">Privacy Policy</a> | <a href="#terms" style="color: #8B7355;">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
