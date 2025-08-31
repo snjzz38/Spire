@@ -25,14 +25,15 @@ function performSearch() {
     return
   }
 
-  // Simple search simulation - in a real app, this would connect to a search backend
+// Simple search simulation - in a real app, this would connect to a search backend
   const searchResults = [
     { title: "Academic Preparation", url: "academics.html" },
     { title: "Application Process", url: "#applications" },
     { title: "Scholarship Information", url: "#scholarships" },
     { title: "Study Resources", url: "#resources" },
+    { title: "SAT", url: "sat-act.html" },
   ]
-
+  
   const matches = searchResults.filter((item) => item.title.toLowerCase().includes(searchTerm))
 
   if (matches.length > 0) {
