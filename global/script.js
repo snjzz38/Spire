@@ -32,6 +32,7 @@ function performSearch() {
     { title: "Scholarship Information", url: "#scholarships" },
     { title: "Study Resources", url: "#resources" },
     { title: "SAT", url: "sat-act.html" },
+    { title: "Opportunities", url: "opportunities.html" },
   ]
   
   const matches = searchResults.filter((item) => item.title.toLowerCase().includes(searchTerm))
