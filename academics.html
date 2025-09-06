@@ -3,105 +3,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Planning - University Applications Hub</title>
-    <link rel="stylesheet" href="global/styles.css">
+    <title>Academics - University Applications Hub</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #fafafa;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #8b7355;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .search-btn {
+            background-color: #7a9b76;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #6a8a66;
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: calc(100vh - 200px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #8b7355 0%, #7a6345 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #7a9b76;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: #7a9b76;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .content-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
+            border-left: 4px solid #7a9b76;
+            list-style: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .content-section li:hover {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            transform: translateX(5px);
+        }
+
+        .content-section li strong {
+            color: #8b7355;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Grading Systems Grid */
+        .grading-systems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .system-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .system-card:hover {
+            border-color: #7a9b76;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .system-card h4 {
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Test Types Section */
+        .test-types {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .test-types h3 {
+            text-align: center;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .test-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .test-card h4 {
+            color: #7a9b76;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Links Styling */
+        .inline-link {
+            color: #7a9b76;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .inline-link:hover {
+            color: #6a8a66;
+            border-bottom-color: #6a8a66;
+        }
+
+        /* Call-to-action box */
+        .cta-box {
+            background: linear-gradient(135deg, #7a9b76 0%, #6a8a66 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #8b7355;
+            text-decoration: none;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .back-link:hover {
+            background-color: #8b7355;
+            color: white;
+            border-color: #8b7355;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #8b7355;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .grading-systems,
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">University Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#scholarships">Scholarships</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search...">
+                <button class="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
     
     <main class="main-content">
         <section class="page-header">
             <div class="container">
-                <h1>Academic Planning</h1>
-                <p>Build a strong academic foundation that will impress college admissions officers and prepare you for university success.</p>
+                <h1>Academics</h1>
+                <p>When you start thinking about university, you'll hear a lot about grades, GPAs, and standardized tests. They're the first thing admissions officers look at to see if you're a good fit.</p>
             </div>
         </section>
         
         <div class="container">
             <section class="content-section">
-                <h2>Course Selection Strategy</h2>
-                <p>Choosing the right courses is crucial for demonstrating academic rigor and preparing for your intended major. Here's how to build a competitive course schedule:</p>
+                <h2>Grades and What They Mean</h2>
+                <p>Your grades are a primary way for universities to judge your academic potential. While a lot of people just think of them as a number, there's a lot more to it.</p>
                 
-                <h3>Core Academic Requirements</h3>
-                <p>Most competitive universities expect to see a strong foundation in core subjects:</p>
+                <div class="grading-systems">
+                    <div class="system-card">
+                        <h4>🇺🇸 GPA (US System)</h4>
+                        <p>In the United States, your grades are typically converted into a Grade Point Average (GPA). Universities often recalculate this GPA based on the difficulty of your classes and the context of your school. Essentially, if you take an easier course and get 95%, then it can be weighted less compared to a harder course where you got 92%.</p>
+                    </div>
+                    
+                    <div class="system-card">
+                        <h4>🇨🇦 Percentage Grades (Canada & others)</h4>
+                        <p>In many countries, like Canada, universities use a percentage-based grading system. They often have an "adjustment factor" for different high schools. This helps them balance out a percentage from a school known for giving high marks versus a percentage from a school that is notoriously difficult.</p>
+                    </div>
+                    
+                    <div class="system-card">
+                        <h4>🌍 International Systems</h4>
+                        <p>Beyond these, there are many other systems. For example, the International Baccalaureate (IB) program uses a 7-point scale for its classes. Other European and Asian countries use their own unique systems. Each university is familiar with these different scales and knows how to evaluate them fairly.</p>
+                    </div>
+                </div>
+                
+                <p><strong>Remember:</strong> Your grades are not just for university applications. A good GPA or percentage is essential when applying to jobs, when you are a college student.</p>
+            </section>
+            
+            <section class="content-section">
+                <h2>The Importance of Course Rigor</h2>
+                <p>Simply having good grades isn't always enough; universities also want to see that you challenged yourself. This is what's known as "course rigor." Taking more difficult classes shows that you're not afraid of a challenge and are ready for university-level work.</p>
                 
                 <ul>
-                    <li><strong>English:</strong> 4 years of literature, composition, and critical analysis</li>
-                    <li><strong>Mathematics:</strong> Through calculus if possible (Algebra I & II, Geometry, Pre-Calculus, Calculus)</li>
-                    <li><strong>Science:</strong> 3-4 years including Biology, Chemistry, and Physics</li>
-                    <li><strong>Social Studies:</strong> 3-4 years including World History, US History, and Government</li>
-                    <li><strong>Foreign Language:</strong> 2-4 years of the same language</li>
-                </ul>
-                
-                <h3>Advanced Placement (AP) Courses</h3>
-                <p>AP courses demonstrate your ability to handle college-level work. Consider these strategies:</p>
-                
-                <ol>
-                    <li><strong>Start gradually:</strong> Take 1-2 AP courses in sophomore year</li>
-                    <li><strong>Build momentum:</strong> Increase to 3-4 AP courses in junior year</li>
-                    <li><strong>Focus on strengths:</strong> Choose APs related to your intended major</li>
-                    <li><strong>Balance your load:</strong> Don't sacrifice grades for quantity</li>
-                </ol>
-                
-                <h3>GPA Improvement Strategies</h3>
-                <p>Your GPA is one of the most important factors in college admissions. Here are proven methods to boost your academic performance:</p>
-                
-                <ul>
-                    <li>Create a consistent study schedule and stick to it</li>
-                    <li>Form study groups with motivated classmates</li>
-                    <li>Attend teacher office hours for extra help</li>
-                    <li>Use active learning techniques like flashcards and practice tests</li>
-                    <li>Seek tutoring for challenging subjects early, not when you're already struggling</li>
+                    <li>
+                        <strong>Advanced Placement (AP)</strong>
+                        These are college-level courses offered in high school. If you score well on the final exam, you might even earn college credit. For more on AP, check out the official information from the College Board. <a href="https://ap.collegeboard.org/" class="inline-link">Learn more about the AP Program</a>
+                    </li>
+                    
+                    <li>
+                        <strong>International Baccalaureate (IB)</strong>
+                        The IB Diploma Programme is a comprehensive and challenging two-year curriculum that is widely recognized internationally. It's a great option for students looking for a broad, interdisciplinary education. <a href="https://www.ibo.org/programmes/diploma-programme/" class="inline-link">Find out about the IB Diploma Programme</a>
+                    </li>
+                    
+                    <li>
+                        <strong>Gifted & Honors Programs</strong>
+                        Many schools offer specific programs for gifted or high-achieving students. These programs vary widely, but they typically offer a more rigorous curriculum. Ask your school counselor for details on any gifted or honors programs available at your school.
+                    </li>
                 </ul>
             </section>
             
             <section class="content-section">
-                <h2>Standardized Test Preparation</h2>
-                <p>Strong SAT or ACT scores can significantly boost your college applications. Here's a comprehensive approach to test prep:</p>
+                <h2>The Role of Standardized Tests</h2>
+                <p>While academics at your school are important, standardized tests provide universities with a common baseline to compare students from different schools and regions.</p>
                 
-                <h3>Choosing Between SAT and ACT</h3>
-                <p>Take practice tests for both to see which format suits you better:</p>
-                <ul>
-                    <li><strong>SAT:</strong> More time per question, focuses on reasoning and problem-solving</li>
-                    <li><strong>ACT:</strong> Faster pace, includes science section, more straightforward questions</li>
-                </ul>
-                
-                <h3>Test Prep Timeline</h3>
-                <ol>
-                    <li><strong>Junior Year Fall:</strong> Take diagnostic practice tests</li>
-                    <li><strong>Junior Year Winter:</strong> Begin structured prep (3-6 months)</li>
-                    <li><strong>Junior Year Spring:</strong> Take the actual test for the first time</li>
-                    <li><strong>Senior Year Fall:</strong> Retake if needed for score improvement</li>
-                </ol>
-                
-                <h3>Effective Study Methods</h3>
-                <p>Maximize your prep time with these proven strategies:</p>
-                <ul>
-                    <li>Focus on your weakest areas first</li>
-                    <li>Take full-length practice tests under timed conditions</li>
-                    <li>Review every wrong answer to understand your mistakes</li>
-                    <li>Learn test-taking strategies specific to each section</li>
-                    <li>Consider a prep course or tutor if self-study isn't working</li>
-                </ul>
+                <div class="test-types">
+                    <h3>Major Standardized Tests</h3>
+                    <div class="test-grid">
+                        <div class="test-card">
+                            <h4>For US Universities</h4>
+                            <p>The SAT and ACT are the two most common standardized tests for US university applications. You should refer to the webpage we have on this already for more information about them.</p>
+                        </div>
+                        
+                        <div class="test-card">
+                            <h4>For International Universities</h4>
+                            <p>Many countries have their own national entrance exams that are a major factor in university admissions. These tests can be very competitive and are essential for certain universities. <a href="#" class="inline-link">See a list of global university entrance exams</a></p>
+                        </div>
+                    </div>
+                </div>
             </section>
             
-            <div class="resource-links">
-                <h3>Academic Planning Resources</h3>
-                <ul>
-                    <li><a href="https://collegeboard.org">College Board</a> - SAT information and practice tests</li>
-                    <li><a href="https://act.org">ACT.org</a> - Official ACT test prep and registration</li>
-                    <li><a href="https://khanacademy.org">Khan Academy</a> - Free SAT prep and academic courses</li>
-                    <li><a href="https://apstudents.collegeboard.org">AP Students</a> - AP course information and exam prep</li>
-                    <li><a href="https://bigfuture.collegeboard.org">BigFuture</a> - College and career planning tools</li>
-                </ul>
+            <div class="cta-box">
+                <p>In the end, it's all about finding a balance. While grades and test scores are crucial, they are just one part of your story. A strong academic record combined with a genuine passion for learning and a willingness to challenge yourself will set you up for success.</p>
             </div>
             
             <a href="index.html" class="back-link">← Back to Home</a>
         </div>
     </main>
     
-    <div id="footer-placeholder"></div>
-    
-    <script src="global/script.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="academics.html">Academic Preparation</a></li>
+                    <li><a href="#applications">Application Process</a></li>
+                    <li><a href="#scholarships">Scholarships</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#study-guides">Study Guides</a></li>
+                    <li><a href="#practice-tests">Practice Tests</a></li>
+                    <li><a href="#essay-help">Essay Writing</a></li>
+                    <li><a href="#career-guidance">Career Guidance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 University Hub. All rights reserved. | <a href="#privacy" style="color: #8B7355;">Privacy Policy</a> | <a href="#terms" style="color: #8B7355;">Terms of Service</a></p>
+        </div>
+    </footer>
 </body>
 </html>
