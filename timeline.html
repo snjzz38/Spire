@@ -129,7 +129,7 @@
 
         .content-section h2 {
             color: #8b7355;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem; /* Reduced margin for better spacing with timeline */
             font-size: 1.8rem;
             border-bottom: 3px solid #7a9b76;
             padding-bottom: 0.5rem;
@@ -161,7 +161,7 @@
             cursor: pointer;
         }
 
-        /* --- NEW HORIZONTAL TIMELINE STYLES --- */
+        /* --- UPDATED HORIZONTAL TIMELINE STYLES --- */
         .timeline {
             display: none; /* Hidden by default */
         }
@@ -169,30 +169,26 @@
         .timeline.active {
             display: block; /* Shown when active */
         }
+        
+        .timeline-wrapper {
+            padding-top: 180px; /* Add space at the top for the popup card to appear */
+            margin-top: -150px; /* Counteract the padding to keep spacing consistent */
+        }
 
         .timeline-track {
             display: flex;
             overflow-x: auto;
-            padding: 2rem 1rem;
-            /* Custom scrollbar for a cleaner look */
+            padding: 1rem;
             scrollbar-width: thin;
             scrollbar-color: #8b7355 #f0f0f0;
         }
-        .timeline-track::-webkit-scrollbar {
-            height: 8px;
-        }
-        .timeline-track::-webkit-scrollbar-track {
-            background: #f0f0f0;
-            border-radius: 4px;
-        }
-        .timeline-track::-webkit-scrollbar-thumb {
-            background-color: #8b7355;
-            border-radius: 4px;
-        }
+        .timeline-track::-webkit-scrollbar { height: 8px; }
+        .timeline-track::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px; }
+        .timeline-track::-webkit-scrollbar-thumb { background-color: #8b7355; border-radius: 4px; }
 
         .timeline-stage {
             position: relative;
-            flex: 0 0 280px; /* Each stage has a fixed width and doesn't shrink */
+            flex: 0 0 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -202,12 +198,11 @@
         .stage-point {
             width: 30px;
             height: 30px;
-            background-color: #fafafa;
-            border: 4px solid #8b7355;
+            background-color: #8b7355; /* Solid brown color by default */
             border-radius: 50%;
             z-index: 2;
             transition: all 0.3s ease;
-            cursor: pointer; /* Indicates it's clickable */
+            cursor: pointer;
         }
 
         .stage-title {
@@ -215,30 +210,28 @@
             font-weight: bold;
             color: #8b7355;
             margin-top: 1rem;
-            height: 60px; /* Allocate space for title */
+            height: 60px;
         }
 
-        /* The connecting line */
+        /* The connecting line - updated to match image */
         .timeline-stage::after {
             content: '';
             position: absolute;
-            top: 15px; /* Vertically center with the stage-point */
+            top: 14px; /* Vertically center with the stage-point */
             left: 50%;
             width: 100%;
-            height: 4px;
-            background-color: #e0e0e0;
+            height: 2px; /* Thinner line */
+            background-color: #e0e0e0; /* Lighter line */
             z-index: 1;
         }
-        .timeline-stage:last-child::after {
-            display: none; /* No line after the last stage */
-        }
+        .timeline-stage:last-child::after { display: none; }
 
-        /* The interactive description card */
+        /* The interactive description card - POSITIONING FIXED */
         .stage-details {
             position: absolute;
-            top: 110%; /* Position below the stage title */
+            bottom: calc(100% + 20px); /* POSITION FIX: Appears ABOVE the stage */
             left: 50%;
-            transform: translateX(-50%) translateY(15px);
+            transform: translateX(-50%) translateY(15px); /* Start slightly lower for animation */
             width: 300px;
             background: white;
             border: 1px solid #ddd;
@@ -251,28 +244,21 @@
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
         }
         
-        .stage-details ul {
-            padding-left: 1.2rem;
-            list-style: disc;
-        }
+        .stage-details ul { padding-left: 1.2rem; list-style: disc; }
+        .stage-details li { margin-bottom: 0.8rem; color: #555; }
 
-        .stage-details li {
-            margin-bottom: 0.8rem;
-            color: #555;
-        }
-
-        /* Click Interaction */
+        /* Click Interaction - updated to match image */
         .stage-point.active {
-            background-color: #8b7355;
             transform: scale(1.1);
+            box-shadow: 0 0 0 4px rgba(122, 155, 118, 0.5); /* Green glow effect */
         }
 
         .stage-details.visible {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0); /* Animate upwards */
         }
-        /* --- END OF NEW STYLES --- */
+        /* --- END OF UPDATED STYLES --- */
 
         /* Call-to-action box */
         .cta-box {
@@ -284,11 +270,7 @@
             margin: 2rem 0;
         }
 
-        .cta-box p {
-            font-size: 1.1rem;
-            margin: 0;
-            font-style: italic;
-        }
+        .cta-box p { font-size: 1.1rem; margin: 0; font-style: italic; }
 
         .back-link {
             display: inline-block;
@@ -302,11 +284,7 @@
             border: 2px solid transparent;
         }
 
-        .back-link:hover {
-            background-color: #8b7355;
-            color: white;
-            border-color: #8b7355;
-        }
+        .back-link:hover { background-color: #8b7355; color: white; border-color: #8b7355; }
 
         /* Footer */
         .footer {
@@ -325,28 +303,11 @@
             gap: 2rem;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #8b7355;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: white;
-        }
+        .footer-section h3 { margin-bottom: 1rem; color: #8b7355; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        .footer-section ul li a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: white; }
 
         .footer-bottom {
             text-align: center;
@@ -358,27 +319,11 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .content-section {
-                padding: 1.5rem;
-            }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .content-section { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -422,52 +367,54 @@
                 <!-- Timeline for US Student -->
                 <div id="us-student" class="timeline active">
                     <h2>Timeline for US Students</h2>
-                    <div class="timeline-track">
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 9-10: <br>Foundation Years</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Build a strong academic foundation. Your GPA starts now.</li>
-                                    <li>Join clubs, sports, or volunteer to explore your interests.</li>
-                                    <li>Meet with your counselor to plan challenging high school courses.</li>
-                                </ul>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-track">
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 9-10: <br>Foundation Years</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Build a strong academic foundation. Your GPA starts now.</li>
+                                        <li>Join clubs, sports, or volunteer to explore your interests.</li>
+                                        <li>Meet with your counselor to plan challenging high school courses.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 11: <br>The Critical Year</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Prepare for and take the SAT or ACT.</li>
-                                    <li>Start researching universities and build a preliminary list.</li>
-                                    <li>Visit campuses if possible to get a feel for the environment.</li>
-                                    <li>Build strong relationships with teachers for recommendations.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 11: <br>The Critical Year</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Prepare for and take the SAT or ACT.</li>
+                                        <li>Start researching universities and build a preliminary list.</li>
+                                        <li>Visit campuses if possible to get a feel for the environment.</li>
+                                        <li>Build strong relationships with teachers for recommendations.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 12 (Fall): <br>Application Season</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Finalize your university list (5-10 schools).</li>
-                                    <li>Work on applications and write your personal essays.</li>
-                                    <li>Complete the FAFSA and CSS Profile for financial aid.</li>
-                                    <li>Submit applications, paying close attention to deadlines.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 12 (Fall): <br>Application Season</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Finalize your university list (5-10 schools).</li>
+                                        <li>Work on applications and write your personal essays.</li>
+                                        <li>Complete the FAFSA and CSS Profile for financial aid.</li>
+                                        <li>Submit applications, paying close attention to deadlines.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 12 (Spring): <br>Decisions & Next Steps</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Receive admission decisions.</li>
-                                    <li>Evaluate offers and financial aid packages.</li>
-                                    <li>Make your final decision and submit your deposit by May 1st.</li>
-                                    <li>Finish the school year strong!</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 12 (Spring): <br>Decisions & Next Steps</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Receive admission decisions.</li>
+                                        <li>Evaluate offers and financial aid packages.</li>
+                                        <li>Make your final decision and submit your deposit by May 1st.</li>
+                                        <li>Finish the school year strong!</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -476,49 +423,51 @@
                 <!-- Timeline for International Student -->
                 <div id="international-student" class="timeline">
                     <h2>Timeline for International Students</h2>
-                    <div class="timeline-track">
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">18-24 Months Before: <br>Research & Prep</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Decide which country and education system you prefer.</li>
-                                    <li>Prepare for and take English proficiency tests (TOEFL/IELTS).</li>
-                                    <li>Ensure your coursework aligns with university requirements.</li>
-                                </ul>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-track">
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">18-24 Months Before: <br>Research & Prep</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Decide which country and education system you prefer.</li>
+                                        <li>Prepare for and take English proficiency tests (TOFL/IELTS).</li>
+                                        <li>Ensure your coursework aligns with university requirements.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">12-18 Months Before: <br>Testing & Shortlisting</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Take required standardized tests (e.g., SAT/ACT for the US).</li>
-                                    <li>Finalize a shortlist of 5-8 universities.</li>
-                                    <li>Begin gathering financial documents to prove funding.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">12-18 Months Before: <br>Testing & Shortlisting</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Take required standardized tests (e.g., SAT/ACT for the US).</li>
+                                        <li>Finalize a shortlist of 5-8 universities.</li>
+                                        <li>Begin gathering financial documents to prove funding.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">6-12 Months Before: <br>Applications</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Complete and submit your applications and essays.</li>
-                                    <li>Request letters of recommendation from teachers.</li>
-                                    <li>Actively search and apply for international student scholarships.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">6-12 Months Before: <br>Applications</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Complete and submit your applications and essays.</li>
+                                        <li>Request letters of recommendation from teachers.</li>
+                                        <li>Actively search and apply for international student scholarships.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">1-6 Months Before: <br>Visa & Logistics</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Receive and accept an admission offer.</li>
-                                    <li>Begin the student visa application process immediately.</li>
-                                    <li>Arrange for housing and book your travel.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">1-6 Months Before: <br>Visa & Logistics</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Receive and accept an admission offer.</li>
+                                        <li>Begin the student visa application process immediately.</li>
+                                        <li>Arrange for housing and book your travel.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -527,50 +476,52 @@
                 <!-- Timeline for Student Athlete -->
                 <div id="student-athlete" class="timeline">
                     <h2>Timeline for Student Athletes (NCAA)</h2>
-                    <div class="timeline-track">
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 9: <br>Get Started</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Plan your courses to ensure they are NCAA-approved.</li>
-                                    <li>Create a free profile page with the NCAA Eligibility Center.</li>
-                                    <li>Focus on both your athletic and academic performance.</li>
-                                </ul>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-track">
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 9: <br>Get Started</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Plan your courses to ensure they are NCAA-approved.</li>
+                                        <li>Create a free profile page with the NCAA Eligibility Center.</li>
+                                        <li>Focus on both your athletic and academic performance.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 10: <br>Build Your Profile</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Upgrade to a paid NCAA Certification Account.</li>
-                                    <li>Ask your counselor to upload your official transcripts.</li>
-                                    <li>Create a highlight reel and begin contacting coaches.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 10: <br>Build Your Profile</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Upgrade to a paid NCAA Certification Account.</li>
+                                        <li>Ask your counselor to upload your official transcripts.</li>
+                                        <li>Create a highlight reel and begin contacting coaches.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 11: <br>Recruiting Year</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Take the SAT/ACT and send scores to the NCAA (code 9999).</li>
-                                    <li>Communicate regularly with interested coaches.</li>
-                                    <li>Go on unofficial visits to campuses you're interested in.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 11: <br>Recruiting Year</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Take the SAT/ACT and send scores to the NCAA (code 9999).</li>
+                                        <li>Communicate regularly with interested coaches.</li>
+                                        <li>Go on unofficial visits to campuses you're interested in.</li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="timeline-stage">
-                            <div class="stage-point" tabindex="0"></div>
-                            <div class="stage-title">Grade 12: <br>Final Steps</div>
-                            <div class="stage-details">
-                                <ul>
-                                    <li>Take official, university-paid visits.</li>
-                                    <li>Apply to the universities that are recruiting you.</li>
-                                    <li>Sign a National Letter of Intent (NLI) if you receive an offer.</li>
-                                    <li>Request final amateurism certification after graduation.</li>
-                                </ul>
+                            <div class="timeline-stage">
+                                <div class="stage-point" tabindex="0"></div>
+                                <div class="stage-title">Grade 12: <br>Final Steps</div>
+                                <div class="stage-details">
+                                    <ul>
+                                        <li>Take official, university-paid visits.</li>
+                                        <li>Apply to the universities that are recruiting you.</li>
+                                        <li>Sign a National Letter of Intent (NLI) if you receive an offer.</li>
+                                        <li>Request final amateurism certification after graduation.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -650,9 +601,8 @@
             // --- Horizontal Scroll with Mouse Wheel Logic ---
             timelineTracks.forEach(track => {
                 track.addEventListener('wheel', (evt) => {
-                    // Prevent the default vertical scroll
+                    if (evt.deltaY === 0) return; // Do nothing for vertical scrolls
                     evt.preventDefault();
-                    // Scroll the track horizontally instead
                     track.scrollLeft += evt.deltaY;
                 });
             });
