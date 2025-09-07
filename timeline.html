@@ -207,6 +207,7 @@
             border-radius: 50%;
             z-index: 2;
             transition: all 0.3s ease;
+            cursor: pointer; /* Indicates it's clickable */
         }
 
         .stage-title {
@@ -260,13 +261,13 @@
             color: #555;
         }
 
-        /* Hover Interaction */
-        .timeline-stage:hover .stage-point {
+        /* Click Interaction */
+        .stage-point.active {
             background-color: #8b7355;
             transform: scale(1.1);
         }
 
-        .timeline-stage:hover .stage-details {
+        .stage-details.visible {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
@@ -423,7 +424,7 @@
                     <h2>Timeline for US Students</h2>
                     <div class="timeline-track">
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 9-10: <br>Foundation Years</div>
                             <div class="stage-details">
                                 <ul>
@@ -434,7 +435,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 11: <br>The Critical Year</div>
                             <div class="stage-details">
                                 <ul>
@@ -446,7 +447,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 12 (Fall): <br>Application Season</div>
                             <div class="stage-details">
                                 <ul>
@@ -458,7 +459,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 12 (Spring): <br>Decisions & Next Steps</div>
                             <div class="stage-details">
                                 <ul>
@@ -477,7 +478,7 @@
                     <h2>Timeline for International Students</h2>
                     <div class="timeline-track">
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">18-24 Months Before: <br>Research & Prep</div>
                             <div class="stage-details">
                                 <ul>
@@ -488,7 +489,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">12-18 Months Before: <br>Testing & Shortlisting</div>
                             <div class="stage-details">
                                 <ul>
@@ -499,7 +500,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">6-12 Months Before: <br>Applications</div>
                             <div class="stage-details">
                                 <ul>
@@ -510,7 +511,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">1-6 Months Before: <br>Visa & Logistics</div>
                             <div class="stage-details">
                                 <ul>
@@ -528,7 +529,7 @@
                     <h2>Timeline for Student Athletes (NCAA)</h2>
                     <div class="timeline-track">
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 9: <br>Get Started</div>
                             <div class="stage-details">
                                 <ul>
@@ -539,7 +540,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 10: <br>Build Your Profile</div>
                             <div class="stage-details">
                                 <ul>
@@ -550,7 +551,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 11: <br>Recruiting Year</div>
                             <div class="stage-details">
                                 <ul>
@@ -561,7 +562,7 @@
                             </div>
                         </div>
                         <div class="timeline-stage">
-                            <div class="stage-point"></div>
+                            <div class="stage-point" tabindex="0"></div>
                             <div class="stage-title">Grade 12: <br>Final Steps</div>
                             <div class="stage-details">
                                 <ul>
@@ -632,19 +633,60 @@
         document.addEventListener('DOMContentLoaded', function() {
             const selector = document.getElementById('student-type-select');
             const timelines = document.querySelectorAll('.timeline');
+            const timelineTracks = document.querySelectorAll('.timeline-track');
+            const stagePoints = document.querySelectorAll('.stage-point');
 
+            // --- Timeline Dropdown Selector Logic ---
             function showTimeline(selectedValue) {
                 timelines.forEach(timeline => {
-                    if (timeline.id === selectedValue) {
-                        timeline.classList.add('active');
-                    } else {
-                        timeline.classList.remove('active');
-                    }
+                    timeline.classList.toggle('active', timeline.id === selectedValue);
                 });
             }
 
             selector.addEventListener('change', function() {
                 showTimeline(this.value);
+            });
+
+            // --- Horizontal Scroll with Mouse Wheel Logic ---
+            timelineTracks.forEach(track => {
+                track.addEventListener('wheel', (evt) => {
+                    // Prevent the default vertical scroll
+                    evt.preventDefault();
+                    // Scroll the track horizontally instead
+                    track.scrollLeft += evt.deltaY;
+                });
+            });
+
+            // --- Clickable Dots Logic ---
+            stagePoints.forEach(point => {
+                point.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent click from bubbling up to the document
+                    
+                    const currentStage = this.parentElement;
+                    const details = currentStage.querySelector('.stage-details');
+                    const isAlreadyActive = this.classList.contains('active');
+
+                    // First, close all other open points in the same timeline
+                    const pointsInSameTimeline = currentStage.parentElement.querySelectorAll('.stage-point');
+                    pointsInSameTimeline.forEach(p => {
+                        p.classList.remove('active');
+                        p.parentElement.querySelector('.stage-details').classList.remove('visible');
+                    });
+
+                    // If the clicked point was not already active, open it
+                    if (!isAlreadyActive) {
+                        this.classList.add('active');
+                        details.classList.add('visible');
+                    }
+                });
+            });
+
+            // --- Global Click to Close Logic ---
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.stage-point.active').forEach(point => {
+                    point.classList.remove('active');
+                    point.parentElement.querySelector('.stage-details').classList.remove('visible');
+                });
             });
 
             // Show the default selected timeline on page load
