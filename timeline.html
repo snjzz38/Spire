@@ -129,51 +129,11 @@
 
         .content-section h2 {
             color: #8b7355;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
             font-size: 1.8rem;
             border-bottom: 3px solid #7a9b76;
             padding-bottom: 0.5rem;
             display: inline-block;
-        }
-
-        .content-section h3 {
-            color: #7a9b76;
-            margin-bottom: 1rem;
-            margin-top: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .content-section p {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            color: #555;
-        }
-
-        .content-section ul {
-            margin-bottom: 1.5rem;
-            padding-left: 0;
-        }
-
-        .content-section li {
-            margin-bottom: 1.2rem;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
-            border-left: 4px solid #7a9b76;
-            list-style: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .content-section li:hover {
-            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
-            transform: translateX(5px);
-        }
-
-        .content-section li strong {
-            color: #8b7355;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
         }
         
         /* Dropdown Styles */
@@ -201,7 +161,7 @@
             cursor: pointer;
         }
 
-        /* Timeline Container */
+        /* --- NEW HORIZONTAL TIMELINE STYLES --- */
         .timeline {
             display: none; /* Hidden by default */
         }
@@ -209,6 +169,109 @@
         .timeline.active {
             display: block; /* Shown when active */
         }
+
+        .timeline-track {
+            display: flex;
+            overflow-x: auto;
+            padding: 2rem 1rem;
+            /* Custom scrollbar for a cleaner look */
+            scrollbar-width: thin;
+            scrollbar-color: #8b7355 #f0f0f0;
+        }
+        .timeline-track::-webkit-scrollbar {
+            height: 8px;
+        }
+        .timeline-track::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        .timeline-track::-webkit-scrollbar-thumb {
+            background-color: #8b7355;
+            border-radius: 4px;
+        }
+
+        .timeline-stage {
+            position: relative;
+            flex: 0 0 280px; /* Each stage has a fixed width and doesn't shrink */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .stage-point {
+            width: 30px;
+            height: 30px;
+            background-color: #fafafa;
+            border: 4px solid #8b7355;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .stage-title {
+            text-align: center;
+            font-weight: bold;
+            color: #8b7355;
+            margin-top: 1rem;
+            height: 60px; /* Allocate space for title */
+        }
+
+        /* The connecting line */
+        .timeline-stage::after {
+            content: '';
+            position: absolute;
+            top: 15px; /* Vertically center with the stage-point */
+            left: 50%;
+            width: 100%;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+        .timeline-stage:last-child::after {
+            display: none; /* No line after the last stage */
+        }
+
+        /* The interactive description card */
+        .stage-details {
+            position: absolute;
+            top: 110%; /* Position below the stage title */
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            width: 300px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+        
+        .stage-details ul {
+            padding-left: 1.2rem;
+            list-style: disc;
+        }
+
+        .stage-details li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+
+        /* Hover Interaction */
+        .timeline-stage:hover .stage-point {
+            background-color: #8b7355;
+            transform: scale(1.1);
+        }
+
+        .timeline-stage:hover .stage-details {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        /* --- END OF NEW STYLES --- */
 
         /* Call-to-action box */
         .cta-box {
@@ -358,193 +421,158 @@
                 <!-- Timeline for US Student -->
                 <div id="us-student" class="timeline active">
                     <h2>Timeline for US Students</h2>
-                    <h3>Grade 9-10: Foundation Years</h3>
-                    <ul>
-                        <li>
-                            <strong>Focus on Grades</strong>
-                            Build a strong academic foundation. Your GPA starts now, so take your classes seriously.
-                        </li>
-                        <li>
-                            <strong>Explore Interests</strong>
-                            Join clubs, sports, or volunteer. Find what you're passionate about. This will help you build your extracurricular profile.
-                        </li>
-                        <li>
-                            <strong>Plan Your Courses</strong>
-                            Meet with your counselor to plan your high school courses, ensuring you take challenging classes like AP or Honors.
-                        </li>
-                    </ul>
-                    <h3>Grade 11: The Critical Year</h3>
-                    <ul>
-                        <li>
-                            <strong>Standardized Tests</strong>
-                            Prepare for and take the SAT or ACT. You can take them more than once to improve your score.
-                        </li>
-                        <li>
-                            <strong>Research Universities</strong>
-                            Start building a list of potential universities. Consider factors like size, location, programs, and cost.
-                        </li>
-                        <li>
-                            <strong>Visit Campuses</strong>
-                            If possible, visit some of your top-choice schools to get a feel for the campus and student life.
-                        </li>
-                        <li>
-                            <strong>Teacher Recommendations</strong>
-                            Build strong relationships with your teachers. You'll need to ask for letters of recommendation soon.
-                        </li>
-                    </ul>
-                    <h3>Grade 12: Application Season</h3>
-                    <ul>
-                        <li>
-                            <strong>Finalize University List</strong>
-                            Narrow down your list to about 5-10 universities, including "safety," "match," and "reach" schools.
-                        </li>
-                        <li>
-                            <strong>Work on Applications</strong>
-                            Start filling out applications (like the Common App) and writing your personal essays. Pay close attention to deadlines (Early vs. Regular Decision).
-                        </li>
-                        <li>
-                            <strong>Financial Aid</strong>
-                            Complete the FAFSA and CSS Profile as soon as they become available (usually October 1st).
-                        </li>
-                        <li>
-                            <strong>Submit and Wait</strong>
-                            Submit your applications before the deadlines and monitor your portals for updates. Decisions typically arrive in the spring.
-                        </li>
-                    </ul>
+                    <div class="timeline-track">
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 9-10: <br>Foundation Years</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Build a strong academic foundation. Your GPA starts now.</li>
+                                    <li>Join clubs, sports, or volunteer to explore your interests.</li>
+                                    <li>Meet with your counselor to plan challenging high school courses.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 11: <br>The Critical Year</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Prepare for and take the SAT or ACT.</li>
+                                    <li>Start researching universities and build a preliminary list.</li>
+                                    <li>Visit campuses if possible to get a feel for the environment.</li>
+                                    <li>Build strong relationships with teachers for recommendations.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 12 (Fall): <br>Application Season</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Finalize your university list (5-10 schools).</li>
+                                    <li>Work on applications and write your personal essays.</li>
+                                    <li>Complete the FAFSA and CSS Profile for financial aid.</li>
+                                    <li>Submit applications, paying close attention to deadlines.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 12 (Spring): <br>Decisions & Next Steps</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Receive admission decisions.</li>
+                                    <li>Evaluate offers and financial aid packages.</li>
+                                    <li>Make your final decision and submit your deposit by May 1st.</li>
+                                    <li>Finish the school year strong!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Timeline for International Student -->
                 <div id="international-student" class="timeline">
                     <h2>Timeline for International Students</h2>
-                    <h3>18-24 Months Before University</h3>
-                    <ul>
-                        <li>
-                            <strong>Research & Country Selection</strong>
-                            Decide which country you want to study in (e.g., US, UK, Canada, Australia). Research their education systems and university requirements.
-                        </li>
-                        <li>
-                            <strong>English Proficiency Tests</strong>
-                            If English is not your first language, prepare for and take the TOEFL or IELTS. Check the specific requirements for your target universities.
-                        </li>
-                        <li>
-                            <strong>Academic Preparation</strong>
-                            Ensure your coursework aligns with the requirements of your target universities. Focus on achieving high grades.
-                        </li>
-                    </ul>
-                    <h3>12-18 Months Before University</h3>
-                    <ul>
-                        <li>
-                            <strong>Standardized Tests</strong>
-                            Prepare for and take any required standardized tests like the SAT/ACT (for the US) or other national entrance exams.
-                        </li>
-                        <li>
-                            <strong>Create a University Shortlist</strong>
-                            Finalize a list of 5-8 universities. Research their international student application process and deadlines.
-                        </li>
-                        <li>
-                            <strong>Financial Documentation</strong>
-                            Begin gathering financial documents to prove you can fund your education. This is often required for both university applications and the student visa.
-                        </li>
-                    </ul>
-                    <h3>6-12 Months Before University</h3>
-                    <ul>
-                        <li>
-                            <strong>Application & Essays</strong>
-                            Complete and submit your applications. Pay special attention to essays and personal statements, highlighting your unique international perspective.
-                        </li>
-                        <li>
-                            <strong>Request Recommendations</strong>
-                            Ask teachers or counselors for letters of recommendation, giving them plenty of time and information.
-                        </li>
-                        <li>
-                            <strong>Apply for Scholarships</strong>
-                            Actively search for and apply to scholarships specifically for international students.
-                        </li>
-                    </ul>
-                    <h3>1-6 Months Before University</h3>
-                    <ul>
-                        <li>
-                            <strong>Receive Offers & Accept</strong>
-                            Evaluate your admission offers and accept one. Pay the enrollment deposit.
-                        </li>
-                        <li>
-                            <strong>Apply for Student Visa</strong>
-                            Once you have your acceptance letter (like the I-20 for the US), begin the student visa application process immediately.
-                        </li>
-                        <li>
-                            <strong>Arrange Housing & Travel</strong>
-                            Book your accommodation and flights. Prepare for your move abroad.
-                        </li>
-                    </ul>
+                    <div class="timeline-track">
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">18-24 Months Before: <br>Research & Prep</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Decide which country and education system you prefer.</li>
+                                    <li>Prepare for and take English proficiency tests (TOEFL/IELTS).</li>
+                                    <li>Ensure your coursework aligns with university requirements.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">12-18 Months Before: <br>Testing & Shortlisting</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Take required standardized tests (e.g., SAT/ACT for the US).</li>
+                                    <li>Finalize a shortlist of 5-8 universities.</li>
+                                    <li>Begin gathering financial documents to prove funding.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">6-12 Months Before: <br>Applications</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Complete and submit your applications and essays.</li>
+                                    <li>Request letters of recommendation from teachers.</li>
+                                    <li>Actively search and apply for international student scholarships.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">1-6 Months Before: <br>Visa & Logistics</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Receive and accept an admission offer.</li>
+                                    <li>Begin the student visa application process immediately.</li>
+                                    <li>Arrange for housing and book your travel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Timeline for Student Athlete -->
                 <div id="student-athlete" class="timeline">
                     <h2>Timeline for Student Athletes (NCAA)</h2>
-                    <h3>Grade 9: Get Started</h3>
-                    <ul>
-                        <li>
-                            <strong>Plan Your Courses</strong>
-                            Work with your counselor to ensure you are taking NCAA-approved core courses.
-                        </li>
-                        <li>
-                            <strong>Create a Free NCAA Profile</strong>
-                            Register for a free profile page with the NCAA Eligibility Center to get started.
-                        </li>
-                        <li>
-                            <strong>Focus on Athletics & Academics</strong>
-                            Work hard in your sport and in the classroom. Coaches look for well-rounded individuals.
-                        </li>
-                    </ul>
-                    <h3>Grade 10: Build Your Profile</h3>
-                    <ul>
-                        <li>
-                            <strong>Upgrade to a Certification Account</strong>
-                            Register for an NCAA Certification Account. This is required for official visits and signing.
-                        </li>
-                        <li>
-                            <strong>Send Transcripts</strong>
-                            Ask your counselor to upload your official transcripts to the NCAA Eligibility Center.
-                        </li>
-                        <li>
-                            <strong>Create a Recruitment Video</strong>
-                            Compile a highlight reel and start sending it to coaches at schools you are interested in.
-                        </li>
-                    </ul>
-                    <h3>Grade 11: The Recruiting Year</h3>
-                    <ul>
-                        <li>
-                            <strong>Take Standardized Tests</strong>
-                            Take the SAT/ACT and have your scores sent to the NCAA (use code 9999).
-                        </li>
-                        <li>
-                            <strong>Communicate with Coaches</strong>
-                            This is a key period for coaches to contact you. Respond promptly and professionally.
-                        </li>
-                        <li>
-                            <strong>Go on Unofficial Visits</strong>
-                            Visit campuses to meet coaches and see the facilities. You pay for these visits yourself.
-                        </li>
-                    </ul>
-                    <h3>Grade 12: Final Steps</h3>
-                    <ul>
-                        <li>
-                            <strong>Take Official Visits</strong>
-                            You can begin taking official, university-paid visits starting the first day of your senior year.
-                        </li>
-                        <li>
-                            <strong>Apply to Universities</strong>
-                            Complete the application process for the schools that are recruiting you.
-                        </li>
-                        <li>
-                            <strong>Sign National Letter of Intent (NLI)</strong>
-                            If you receive an offer, you will sign an NLI, which is a binding agreement to attend that university for one academic year.
-                        </li>
-                        <li>
-                            <strong>Final Amateurism Certification</strong>
-                            After graduation, request your final amateurism certification from the NCAA Eligibility Center.
-                        </li>
-                    </ul>
+                    <div class="timeline-track">
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 9: <br>Get Started</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Plan your courses to ensure they are NCAA-approved.</li>
+                                    <li>Create a free profile page with the NCAA Eligibility Center.</li>
+                                    <li>Focus on both your athletic and academic performance.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 10: <br>Build Your Profile</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Upgrade to a paid NCAA Certification Account.</li>
+                                    <li>Ask your counselor to upload your official transcripts.</li>
+                                    <li>Create a highlight reel and begin contacting coaches.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 11: <br>Recruiting Year</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Take the SAT/ACT and send scores to the NCAA (code 9999).</li>
+                                    <li>Communicate regularly with interested coaches.</li>
+                                    <li>Go on unofficial visits to campuses you're interested in.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-stage">
+                            <div class="stage-point"></div>
+                            <div class="stage-title">Grade 12: <br>Final Steps</div>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Take official, university-paid visits.</li>
+                                    <li>Apply to the universities that are recruiting you.</li>
+                                    <li>Sign a National Letter of Intent (NLI) if you receive an offer.</li>
+                                    <li>Request final amateurism certification after graduation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             
