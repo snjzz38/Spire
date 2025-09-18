@@ -348,6 +348,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const selector = document.getElementById('student-type-select');
             const timelineContainer = document.getElementById('timeline-container');
+            // LOCALSTORAGE: The key used to store and retrieve data from the browser's storage.
             const storageKey = 'universityTimelineData';
 
             // --- DEFAULT DATA STRUCTURE ---
@@ -374,7 +375,7 @@
                 'international-student': {
                     '18-24 Months Before University': [
                         { text: 'Research and select target country and universities', completed: false },
-                        { text: 'Prepare for and take English proficiency tests (TOEFL/IELTS)', completed: false },
+                        { text: 'Prepare for and take English proficiency tests (TOFL/IELTS)', completed: false },
                         { text: 'Ensure academic coursework aligns with requirements', completed: false }
                     ],
                     '12-18 Months Before University': [
@@ -421,16 +422,19 @@
             // --- DATA HANDLING ---
             let timelineData = {};
 
+            // LOCALSTORAGE: Saves the current state of the timelineData object to the browser.
             function saveData() {
                 localStorage.setItem(storageKey, JSON.stringify(timelineData));
             }
 
+            // LOCALSTORAGE: Loads data from the browser. If none exists, it loads the default data.
             function loadData() {
                 const savedData = localStorage.getItem(storageKey);
                 if (savedData) {
                     timelineData = JSON.parse(savedData);
                 } else {
-                    timelineData = JSON.parse(JSON.stringify(defaultData)); // Deep copy
+                    // Use a deep copy to prevent modifying the default data object
+                    timelineData = JSON.parse(JSON.stringify(defaultData)); 
                 }
             }
 
@@ -513,13 +517,13 @@
             // --- EVENT HANDLERS ---
             function toggleTask(studentType, sectionTitle, taskIndex) {
                 timelineData[studentType][sectionTitle][taskIndex].completed = !timelineData[studentType][sectionTitle][taskIndex].completed;
-                saveData();
+                saveData(); // LOCALSTORAGE: Save after making a change
                 renderTimeline(studentType);
             }
 
             function deleteTask(studentType, sectionTitle, taskIndex) {
                 timelineData[studentType][sectionTitle].splice(taskIndex, 1);
-                saveData();
+                saveData(); // LOCALSTORAGE: Save after making a change
                 renderTimeline(studentType);
             }
 
@@ -527,7 +531,7 @@
                 const text = inputElement.value.trim();
                 if (text) {
                     timelineData[studentType][sectionTitle].push({ text: text, completed: false });
-                    saveData();
+                    saveData(); // LOCALSTORAGE: Save after making a change
                     renderTimeline(studentType);
                 }
             }
@@ -537,7 +541,7 @@
                 renderTimeline(this.value);
             });
 
-            loadData();
+            loadData(); // LOCALSTORAGE: Load data when the page loads
             renderTimeline(selector.value); // Initial render
         });
     </script>
