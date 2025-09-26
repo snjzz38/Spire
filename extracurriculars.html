@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurriculars - University Applications Hub</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #fafafa;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #8b7355;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f0f0f0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .search-btn {
+            background-color: #7a9b76;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #6a8a66;
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: calc(100vh - 200px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #8b7355 0%, #7a6345 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #7a9b76;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .content-section h3 {
+            color: #7a9b76;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .content-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f5f5 100%);
+            border-left: 4px solid #7a9b76;
+            list-style: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .content-section li:hover {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            transform: translateX(5px);
+        }
+
+        .content-section li strong {
+            color: #8b7355;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Grading Systems Grid */
+        .grading-systems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .system-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .system-card:hover {
+            border-color: #7a9b76;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .system-card h4 {
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Test Types Section */
+        .test-types {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .test-types h3 {
+            text-align: center;
+            color: #8b7355;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .test-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .test-card h4 {
+            color: #7a9b76;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Links Styling */
+        .inline-link {
+            color: #7a9b76;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .inline-link:hover {
+            color: #6a8a66;
+            border-bottom-color: #6a8a66;
+        }
+
+        /* Call-to-action box */
+        .cta-box {
+            background: linear-gradient(135deg, #7a9b76 0%, #6a8a66 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #8b7355;
+            text-decoration: none;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .back-link:hover {
+            background-color: #8b7355;
+            color: white;
+            border-color: #8b7355;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #8b7355;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .grading-systems,
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">University Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#scholarships">Scholarships</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search...">
+                <button class="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Extracurriculars</h1>
+                <p>Beyond your grades and test scores, your extracurricular activities paint a picture of who you are, what you're passionate about, and how you'll contribute to a university community.</p>
+            </div>
+        </section>
+        
+        <div class="container">
+            <section class="content-section">
+                <h2>Extracurriculars Ranked by Prestige (Tiers)</h2>
+                <p>Admissions officers often think about extracurriculars in terms of tiers of achievement and impact. While there's no official system, this is a helpful way to understand what makes an activity stand out.</p>
+                
+                <ul>
+                    <li>
+                        <strong>Tier 1: Exceptional and Rare Achievements</strong>
+                        These are activities that demonstrate exceptional talent and are rare for a high school student. They often involve national or international recognition. Examples include being a highly recruited athlete, winning a prestigious national award (like the Regeneron Science Talent Search), or founding a successful non-profit that gains significant media attention.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEoriF-YLGt3emhkyfbR6XpggArTLhFV7RnUJMVEkSoc-IUJviuAeffOmZQnCQrBi8SK45EPG0OwkuNYo7KtNouQ0ECQT20d-MX6EyOeb8xEiUReczoJsO4VbvxkW9_Pc7xKGfGhVNMFy_pefhuk5-Bwg3x8cpDwX90CxezYvn-8ZAtIEU%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFjbiotSGWwGFajYUV2ORuAEv7kv2mLTAcobjulzplbrIw3_MSN3vOa8bFDnIcMT2eMTrkFQXvrkqlNjm5fF_faGVWxkymfBxFEVAmW56-qFYD1bPqikcmxgDdk4H1dw_3vWtt_ITRNLklubJcL5VR_J9bWX2KR5ooHEUtUzUkW0Bc0sHt7dJ09YpPXxp27Dw%3D%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGjE0V9Vzph6eDmPn_8Cvusezl_yJSIfguhDlLykdjRGrIVG4zsVidozirbLmeCFMP1hD6QRSChEZCFDB0mtczN_PRZrAVMwvYi09ffp3DUsCMPxOnir84gkHtcewD7Jtx7pH2Q9Qe_LxYK4Nmy5a0Nc1QMnZFKspZ9)]
+                    </li>
+                    
+                    <li>
+                        <strong>Tier 2: High-Level Achievement and Leadership</strong>
+                        These activities are more common than Tier 1 but still show significant accomplishment. This could include holding a major leadership position in a well-respected club (like Model UN president), achieving all-state recognition in sports or music, or winning a regional competition.[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFjbiotSGWwGFajYUV2ORuAEv7kv2mLTAcobjulzplbrIw3_MSN3vOa8bFDnIcMT2eMTrkFQXvrkqlNjm5fF_faGVWxkymfBxFEVAmW56-qFYD1bPqikcmxgDdk4H1dw_3vWtt_ITRNLklubJcL5VR_J9bWX2KR5ooHEUtUzUkW0Bc0sHt7dJ09YpPXxp27Dw%3D%3D)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHydFByMsaRpJovbbwbceegLoNG3NpCPHrObA-ew2fUJGhv5o7lxoZuPaBvR-GcU4cg-ty25PVgXnf0T1bnUy5erA7IdCpjaTnRJIt7TElJA8CgA-7Hp3guZFqdKrIGXdKXZNkYd0rVKTXEJTSOkiK1nfvXh3WAaJtAZgVp)]
+                    </li>
+                    
+                    <li>
+                        <strong>Tier 3: Active Participation and Minor Leadership</strong>
+                        This tier includes meaningful participation in clubs and activities. Examples are holding a minor leadership role (like treasurer), being a dedicated member of a sports team, or consistent volunteering for a cause you care about.[[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFjbiotSGWwGFajYUV2ORuAEv7kv2mLTAcobjulzplbrIw3_MSN3vOa8bFDnIcMT2eMTrkFQXvrkqlNjm5fF_faGVWxkymfBxFEVAmW56-qFYD1bPqikcmxgDdk4H1dw_3vWtt_ITRNLklubJcL5VR_J9bWX2KR5ooHEUtUzUkW0Bc0sHt7dJ09YpPXxp27Dw%3D%3D)][[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHydFByMsaRpJovbbwbceegLoNG3NpCPHrObA-ew2fUJGhv5o7lxoZuPaBvR-GcU4cg-ty25PVgXnf0T1bnUy5erA7IdCpjaTnRJIt7TElJA8CgA-7Hp3guZFqdKrIGXdKXZNkYd0rVKTXEJTSOkiK1nfvXh3WAaJtAZgVp)]
+                    </li>
+
+                    <li>
+                        <strong>Tier 4: General Membership and Participation</strong>
+                        These are the most common activities and include general membership in clubs without a specific leadership role or sporadic volunteer work. While not as impactful as higher-tiered activities, they still show a willingness to be involved.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEoriF-YLGt3emhkyfbR6XpggArTLhFV7RnUJMVEkSoc-IUJviuAeffOmZQnCQrBi8SK45EPG0OwkuNYo7KtNouQ0ECQT20d-MX6EyOeb8xEiUReczoJsO4VbvxkW9_Pc7xKGfGhVNMFy_pefhuk5-Bwg3x8cpDwX90CxezYvn-8ZAtIEU%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGjE0V9Vzph6eDmPn_8Cvusezl_yJSIfguhDlLykdjRGrIVG4zsVidozirbLmeCFMP1hD6QRSChEZCFDB0mtczN_PRZrAVMwvYi09ffp3DUsCMPxOnir84gkHtcewD7Jtx7pH2Q9Qe_LxYK4Nmy5a0Nc1QMnZFKspZ9)]
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <h2>Finding Your Profile: Spike, Well-Rounded, or Interdisciplinary?</h2>
+                <p>There are different strategies for building your extracurricular profile. Understanding these can help you decide where to focus your energy.</p>
+                
+                <div class="grading-systems">
+                    <div class="system-card">
+                        <h4>🎯 The "Spike" Profile</h4>
+                        <p>A "spike" refers to developing a deep and impressive expertise in one particular area.[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF2yra1MkWnjAeYzyU5D0RjZ1Vx0MCUD-CCXwyyOwUdaDi2QizETsxsszw0yxd-eWY4UQQUzuMAiVMzZeFUiQEKytML6PkoL-kLxoaquekync_qwFG5pl4mpe_FH9FRWUSN4KnoSKJDbFQCOjzuriIvFzM-EXHKLkf_zbqFyseWXeWmiVAK)][[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHKXDlUI_YPT8BxwB_6i0VowFOZBxYpzsunE5T1Sd0kHd6d4BWPqVYFsOAK_gyqZnbrFUDIG_hGdHsyDSEbvm5VJ1aKeq0bozW72pJhBqgIat81p0KMQcvgXjr3xWtNRG--9GaFXpyhktUs9Y_Xp27xXQvMibwY5wZXx3RTfQ6b5R7_1c6iDbpsw6CK7QfpBJjEcGjghAmLXg%3D%3D)] Instead of participating in many different activities, you focus your time and energy on one or two passions. This could be anything from competitive coding to scientific research or playing a musical instrument at a high level. Highly selective universities often look for students with spikes to create a diverse class of specialists.[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF2yra1MkWnjAeYzyU5D0RjZ1Vx0MCUD-CCXwyyOwUdaDi2QizETsxsszw0yxd-eWY4UQQUzuMAiVMzZeFUiQEKytML6PkoL-kLxoaquekync_qwFG5pl4mpe_FH9FRWUSN4KnoSKJDbFQCOjzuriIvFzM-EXHKLkf_zbqFyseWXeWmiVAK)][[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEwqkapY4l_pR2oBwZSCE8B_JdvhYKC7fQ5I3oGWWGyPndizUZeAFuiWyKkLN3J4PEvoJ8T3SyhDA6WGS2RteI48TCr3-XctJ3NZkDkNW9g4uKhqsGmXPCitkpq5ihWBj-yeDJi2A%3D%3D)][[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHikHGu3VO_c9rWEhMe4ETEw_2mziUFC1Kih6RiSPdFJXYtPwBHvJXnqlJcjnpZQRSzeIWuvNANrppqyp9PDI-tX2HnhJ3A_4KguR6cbMvptT8gIdIqszqVTcYPs20gUVXaCfO2LbIOxFfSkug4vIl0QQXBVo8ocQnMokepk9KfQflWkThiyhVwmynGnPMb4BsqVsIoct3jFZRUZoaSck8R_FONVWgJf6TmGmQY1m6t73LJRFCaoVTP)] For example, a student with a spike in computer science might have won hackathons, developed an app, and interned at a tech company.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEoriF-YLGt3emhkyfbR6XpggArTLhFV7RnUJMVEkSoc-IUJviuAeffOmZQnCQrBi8SK45EPG0OwkuNYo7KtNouQ0ECQT20d-MX6EyOeb8xEiUReczoJsO4VbvxkW9_Pc7xKGfGhVNMFy_pefhuk5-Bwg3x8cpDwX90CxezYvn-8ZAtIEU%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFjbiotSGWwGFajYUV2ORuAEv7kv2mLTAcobjulzplbrIw3_MSN3vOa8bFDnIcMT2eMTrkFQXvrkqlNjm5fF_faGVWxkymfBxFEVAmW56-qFYD1bPqikcmxgDdk4H1dw_3vWtt_ITRNLklubJcL5VR_J9bWX2KR5ooHEUtUzUkW0Bc0sHt7dJ09YpPXxp27Dw%3D%3D)]</p>
+                    </div>
+                    
+                    <div class="system-card">
+                        <h4>🌍 The Well-Rounded Profile</h4>
+                        <p>The well-rounded applicant participates in a variety of activities, demonstrating a broad range of interests and abilities. This might include playing a sport, being in the school play, volunteering, and being a member of several clubs. While the idea of being "well-rounded" is sometimes seen as less effective for top-tier schools that prefer spikes, it can still be a successful strategy, especially if you show leadership and commitment across your activities.[[9](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGsu4oV3CMWT-qqPGwD7D3RnhQMFX19qMZxjT6JkJGAPexiEjc6zslbRb8lrAC-wnqatWdNQFboT9Afn1HnOnt72h36slsl2nyuKB6qaQIkhlnaaLIdw2XWXxgBVpza1Rgd7leB40dlk0GrmLVwsjRUb1UMCdnoyWbrzEIowfN_P5m5JJto7sI_peJ8)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFUidhI4Aqvwt690qMg5uBETbo4XTx5hOTaeZmdiretyP4z8IG3BDK3l96K1w1p4yEABp3HUn1WlGJQ7s_DE-NerGHynA2lohUi5m8XFRgsOWWyaFNuzFjoJ2fEdfxW0FCG4UBtcckB4Jf0i7gYv9BBCuybstsAgiiNJpt-W2nZ)] The key is to avoid looking like a "jack of all trades, but a master of none."[[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEwqkapY4l_pR2oBwZSCE8B_JdvhYKC7fQ5I3oGWWGyPndizUZeAFuiWyKkLN3J4PEvoJ8T3SyhDA6WGS2RteI48TCr3-XctJ3NZkDkNW9g4uKhqsGmXPCitkpq5ihWBj-yeDJi2A%3D%3D)][[11](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFJUYpXgC8bs8I8XAxmSqxywfV7rBgVfYrTcJzunqWreEFp95e2gMEbkzbVxjL8xfVDVimx648-5Oc98bOkNSwGZ6XzpVfoTGHIcwcqsMHDFBx_qiGfrh7G46YzJMuRL2g7R74lJexy1r8FBD9H8sPMP4FBLQZpPMGvsku8whP0g4gr6phQ7PI7o1nMM3aRU8Xjzbb3yaCrlofYB7tYr7PmyHAu7EXVvplm_nZGaxAXKAG82lxPdCHIfu8ySlpjSe5zFDqYL-ylWKstGHy4zbZfXk1lOQqA)]</p>
+                    </div>
+                    
+                    <div class="system-card">
+                        <h4>🤝 The Interdisciplinary Profile</h4>
+                        <p>An interdisciplinary approach involves combining interests from different fields to create a unique niche.[[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEiWEWSPhuEqCxjgbmV47qJAH2pt66P47upjbj-DxjmAzjdeXFFM4N-l_cyvc_BK18JI0DcIEq97uIzVQ4gPkLDaU4fCk0wb_8lsAtrNHRJ6IukNsiX1CR4P3BK2JRs-Mz5EtZE5-0eKFRzLmV4sbMRxcbruxhVLl-jZc_1RV0nQ43HjXApXSkwnPlk-mFsxpkoi_OCBciNdDF--IRPLI8OVDIIYGqsT9AZChlk_dCICYMFNOMfb9jtIMIQ8LXLSlSPve6mDY3fw4tbZItrlxCJbozA7LLr)][[13](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG8Tugj0HZC9lclkwTsw4zPrzYJL5Ywsps3SY2GzFX_mR_kABKce0gx2hb-o3nCFMaildCsu9iV4-XeWKCPE_bpZjFdjeZQHk36EODU5VZrKIsKlm6hdnQTD3pPz3TKfXZI46TZGD_OpDhSgXo_Ln3qx0gscAH-ePM1qjM9eqhPR6JrRFaSaoBEeSh2XG5XFDaSorpcaLARl9SBbwCSaXFLHS_M_72oF0CQDZBf)] For example, a student passionate about both computer science and art could create a project on digital art or use coding to analyze artistic trends. This shows creativity, innovation, and the ability to think across traditional subject boundaries.[[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGjE0V9Vzph6eDmPn_8Cvusezl_yJSIfguhDlLykdjRGrIVG4zsVidozirbLmeCFMP1hD6QRSChEZCFDB0mtczN_PRZrAVMwvYi09ffp3DUsCMPxOnir84gkHtcewD7Jtx7pH2Q9Qe_LxYK4Nmy5a0Nc1QMnZFKspZ9)][[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEiWEWSPhuEqCxjgbmV47qJAH2pt66P47upjbj-DxjmAzjdeXFFM4N-l_cyvc_BK18JI0DcIEq97uIzVQ4gPkLDaU4fCk0wb_8lsAtrNHRJ6IukNsiX1CR4P3BK2JRs-Mz5EtZE5-0eKFRzLmV4sbMRxcbruxhVLl-jZc_1RV0nQ43HjXApXSkwnPlk-mFsxpkoi_OCBciNdDF--IRPLI8OVDIIYGqsT9AZChlk_dCICYMFNOMfb9jtIMIQ8LXLSlSPve6mDY3fw4tbZItrlxCJbozA7LLr)] This can be a powerful way to stand out and demonstrate a unique perspective.[[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEiWEWSPhuEqCxjgbmV47qJAH2pt66P47upjbj-DxjmAzjdeXFFM4N-l_cyvc_BK18JI0DcIEq97uIzVQ4gPkLDaU4fCk0wb_8lsAtrNHRJ6IukNsiX1CR4P3BK2JRs-Mz5EtZE5-0eKFRzLmV4sbMRxcbruxhVLl-jZc_1RV0nQ43HjXApXSkwnPlk-mFsxpkoi_OCBciNdDF--IRPLI8OVDIIYGqsT9AZChlk_dCICYMFNOMfb9jtIMIQ8LXLSlSPve6mDY3fw4tbZItrlxCJbozA7LLr)][[13](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG8Tugj0HZC9lclkwTsw4zPrzYJL5Ywsps3SY2GzFX_mR_kABKce0gx2hb-o3nCFMaildCsu9iV4-XeWKCPE_bpZjFdjeZQHk36EODU5VZrKIsKlm6hdnQTD3pPz3TKfXZI46TZGD_OpDhSgXo_Ln3qx0gscAH-ePM1qjM9eqhPR6JrRFaSaoBEeSh2XG5XFDaSorpcaLARl9SBbwCSaXFLHS_M_72oF0CQDZBf)]</p>
+                    </div>
+                </div>
+                
+                <h3>What's the Right Balance?</h3>
+                <p>There is no single "correct" ratio of activities. The best approach is to pursue what genuinely interests you.[[14](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFr32QkiuqXsSYdP4cpbJpwTqPpf4pE72_bYfu4ylURsTAUP2H_PXmM7FBEunROz_2Q74ihvuaR-9oMXkFMpSpIlM6F82KGOrNRE4UMcXjCQNUjWriK1YWgkmmixGFZtpzOdYS6vAUZiGiKwSV53ejM2pTb263eyutqTTz-GdPhEuLgvL9I0egZDUUohMZmnnwp15mOEcYQE7qnlg%3D%3D)][[15](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEQYYEOwMxXVrhSDHuYd9_n-atyegJOwPH-0Dk-27cEvEyslYClfK99QphhkOTzxVpZprO8JqjbvOtwaUDefOK1bmirtNf5WbVMiImC45uEJAjTK9U8Wa5pOR8QUVQoRTVPD5qNJ6Bqr6G0LnX_MJk26Dju4sgZsieHbC353IdDgBmxjKX9FPMTtz6_TNRlaHmnXtIzqrWZ86xW9i70_Eqy6gD3ZjnVi3u4efimfkZNZQHhuvfexA%3D%3D)] However, here are some general guidelines:</p>
+                <ul>
+                    <li>
+                        <strong>Depth over Breadth:</strong> It's generally better to have deep involvement in a few activities than superficial involvement in many.[[16](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEvINB1b1rpyTpHuoEfc8k_K7rjbsI3eo8kfR0S6KFaAO1Ike5bnqrK51P1ZdGKBxOnAfhRLrjVHBVsH685TKNNeFYf6IS1KBbay6EHHmM7i-7qvv6t0YxronZ4cTcXoJVVv5xyCDSh3yOBhm3qJE45nigoO6RB-hZ4T_OtZdfB54IKwJ9_h_ne8aXtHGVRvXhiYrNR12ZSN47IcSRkSr8tApnfjrkN0DqwokI%3D)][[17](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGCU4B6IFQUM-BvcEBilMZkcTlG8RGvnKctTGzOQPtmJl-xi8ASEvw0yY_lZMfs51fKM1Ynx0OwMXgkVi4CZBICyT2iLNM6xdmXe5AlpCUqJ8p6bXV57wifU2j5dtf67kcGg8GwZnZpXlL_TyM39srMBb-lUWOZwE1o1pYBIPScLJ2G2D19ppT8LjzUUP5dI5ZlsN9RNBe5uIg%3D)]
+                    </li>
+                    <li>
+                        <strong>Show, Don't Just Tell:</strong> If you're passionate about something, your activities should reflect that. A student interested in medicine might volunteer at a hospital, conduct related research, and lead a health-focused club.
+                    </li>
+                    <li>
+                        <strong>Leadership Matters:</strong> Leadership doesn't always mean being president. It can be taking the initiative on a project, mentoring younger students, or organizing an event.[[18](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGhkljUVZosQuHTq6tXAr7B4hiKF6pgPbP7bnpjZApG_jqL8xhL8Hm2xySJr4twHLAADK4G1VKQP4ShPWVh2571QXi-9Sg4c2TR5jD-DyIIBjM-S2WUe2FijuUzINnrdH9uB9eIaDNkAZKBk4Jq8XrEdWEUoXuED7pRQrHuf4zZfKo1OGPx2DyrSOYY6s000Z24M_Xyf-Xq_TnzsnyHMrnpgBaH5oc1ueWKqyff)]
+                    </li>
+                </ul>
+            </section>
+            
+            <div class="cta-box">
+                <p>Ultimately, the most compelling extracurricular profile is one that is authentic to you. Your activities should tell a story about your passions, your commitment, and the unique qualities you'll bring to a college campus.</p>
+            </div>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="academics.html">Academic Preparation</a></li>
+                    <li><a href="#applications">Application Process</a></li>
+                    <li><a href="#scholarships">Scholarships</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#study-guides">Study Guides</a></li>
+                    <li><a href="#practice-tests">Practice Tests</a></li>
+                    <li><a href="#essay-help">Essay Writing</a></li>
+                    <li><a href="#career-guidance">Career Guidance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 University Hub. All rights reserved. | <a href="#privacy" style="color: #8B7355;">Privacy Policy</a> | <a href="#terms" style="color: #8B7355;">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
