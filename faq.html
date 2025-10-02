@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - University Applications Hub</title>
+    <!-- Link to your GLOBAL stylesheet for all common styles -->
+    <link rel="stylesheet" href="global/styles.css">
+    <style>
+        /* --- STYLES UNIQUE TO THIS FAQ PAGE --- */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 1rem;
+        }
+        .faq-item summary {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8b7355;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+            position: relative;
+            list-style: none; /* Remove default marker */
+            transition: background-color 0.3s ease;
+        }
+        .faq-item summary:hover {
+            background-color: #f9f9f9;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: #7a9b76;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease-in-out;
+        }
+        .faq-item[open] summary::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 768px) {
+            .faq-item summary {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- The header will be loaded by global/script.js -->
+    <div id="header-placeholder"></div>
+    
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Navigating the university application process can be confusing. Here are answers to some of the most common questions we receive.</p>
+            </div>
+        </section>
+        
+        <div class="container">
+            <section class="content-section">
+                <h2>Your Questions, Answered</h2>
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>How many extracurriculars should I have?</summary>
+                        <div class="faq-answer">
+                            <p>There is no magic number. Admissions officers value depth over breadth. It is far more impressive to have a deep, long-term commitment to 2-3 activities where you've shown growth and leadership than to be a passive member of 10 different clubs. Focus on what you are genuinely passionate about.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What's more important: GPA or standardized test scores?</summary>
+                        <div class="faq-answer">
+                            <p>Your GPA and the rigor of your courses are generally the most important factor. They reflect your academic performance over four years, not just on a single day. However, with many universities being "test-optional," the emphasis on your transcript has become even greater. If you do submit scores, they are considered as another important data point in a holistic review.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Should I apply Early Decision or Regular Decision?</summary>
+                        <div class="faq-answer">
+                            <p><strong>Early Decision (ED)</strong> is a binding commitment, meaning if you are accepted, you must attend. You should only apply ED if you have a clear first-choice university and are certain you can afford it. ED can sometimes offer a slight statistical advantage in admissions. <strong>Regular Decision (RD)</strong> is non-binding and allows you to apply to multiple schools and compare financial aid offers before making a choice.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What should I write my main application essay about?</summary>
+                        <div class="faq-answer">
+                            <p>Your essay should be a personal story that reveals something important about your character, values, or perspective that can't be found elsewhere in your application. Focus on reflection. It's not just about *what* happened, but *why* it mattered to you and how it shaped who you are today. Be authentic and write in your own voice.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Does it matter if my school doesn't offer many AP/IB classes?</summary>
+                        <div class="faq-answer">
+                            <p>No. Admissions officers practice "holistic review," which means they evaluate you within the context of your environment. They will see a profile from your school that shows what advanced courses were available to you. Your goal is to show that you took advantage of the most challenging curriculum available at your specific school.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do I ask for a strong letter of recommendation?</summary>
+                        <div class="faq-answer">
+                            <p>Ask a teacher from a core junior-year subject who knows you well and in whose class you actively participated. Ask them in person at least one month before the deadline. To help them, provide a "brag sheet" that includes your resume, a list of schools you're applying to, and a few reminders of specific projects or discussions from their class that you are proud of.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </main>
+    
+    <!-- The footer will be loaded by global/script.js -->
+    <div id="footer-placeholder"></div>
+
+    <!-- This script loads the header and footer. It does NOT need to be edited. -->
+    <script src="global/script.js"></script>
+
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+      window.va('set', 'mode', 'auto');
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    
+</body>
+</html>
