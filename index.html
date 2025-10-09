@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Applications Hub - Your Guide to College Success</title>
+    <title>University Applications Hub - A Student-Run Guide</title>
     <link rel="stylesheet" href="global/styles.css">
 </head>
 <body>
+    <!-- The header will be loaded here automatically -->
     <div id="header-placeholder"></div>
-    
+
     <main class="main-content">
         <section class="hero">
             <div class="container">
-                <h1>University Applications Hub</h1>
-                <p class="subtitle">Your one-stop guide for high school students applying to universities</p>
-                <p>Navigate the complex world of college applications with confidence. From academic planning to essay writing, we've got you covered every step of the way.</p>
-                <a href="academics.html" class="cta-button">Get Started</a>
+                <h1>Your Journey to University Starts Here</h1>
+                <p>A comprehensive, student-run guide to help you navigate the complexities of university applications, from academics to essays and beyond.</p>
             </div>
         </section>
-        
+
+        <!-- Disclaimer Section (Placed near the top) -->
+        <div class="container">
+            <div class="disclaimer-box">
+                <p><strong>Disclaimer:</strong> University Hub is a student-run resource. The information provided is for guidance only and is not affiliated with any official government body or educational institution.</p>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
         <section class="categories" id="resources">
             <div class="container">
                 <h2>Explore Our Resources</h2>
@@ -33,8 +40,8 @@
                         <p>Leadership opportunities, volunteer work, sports, clubs, and building a well-rounded profile.</p>
                     </a>
                     
-                    <a href="essays.html" class="category-card">
-                        <h3>Essays</h3>
+                    <a href="essays_applications.html" class="category-card">
+                        <h3>Essays & Applications</h3>
                         <p>Personal statements, supplemental essays, brainstorming techniques, and writing tips.</p>
                     </a>
                     
@@ -57,21 +64,27 @@
                         <h3>Timeline</h3>
                         <p>Application deadlines, planning schedules, and staying organized throughout the process.</p>
                     </a>
+
+                    <a href="faq.html" class="category-card">
+                        <h3>FAQ</h3>
+                        <p>Get answers to the most common questions about the university application process.</p>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
-    
+
+    <!-- The footer will be loaded here automatically -->
     <div id="footer-placeholder"></div>
-    
+
+    <!-- This script loads the header and footer -->
     <script src="global/script.js"></script>
 
-  <!-- Vercel Analytics -->
-  <script>
-    window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-    window.va('set', 'mode', 'auto');
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+      window.va('set', 'mode', 'auto');
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
